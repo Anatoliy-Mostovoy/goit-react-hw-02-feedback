@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":[],"mappings":"4IAAA,mB","file":"static/js/main.63886216.chunk.js","sourcesContent":["import React from 'react';\nimport ReactDOM from 'react-dom';\n\n// ReactDOM.render(\n//   <React.StrictMode>\n//     <App />\n//   </React.StrictMode>,\n//   document.getElementById('root'),\n// );\n"],"sourceRoot":""}
