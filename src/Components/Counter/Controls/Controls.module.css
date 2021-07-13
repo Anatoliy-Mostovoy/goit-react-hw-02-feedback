@@ -1,0 +1,14 @@
+.CunterContols {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Button {
+  width: 100px;
+
+  margin: 2px;
+
+  font-size: 10px;
+  cursor: pointer;
+}

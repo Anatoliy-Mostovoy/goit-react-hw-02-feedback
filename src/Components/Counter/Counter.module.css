@@ -1,0 +1,10 @@
+.Counter {
+  width: 300px;
+
+  border: 2px solid goldenrod;
+  border-radius: 3px;
+
+  margin: 0 auto;
+  padding: 10px;
+  align-items: center;
+}

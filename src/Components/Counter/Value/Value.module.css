@@ -1,0 +1,8 @@
+.CounterValue {
+  display: block;
+  width: 100px;
+  height: 100%;
+  color: green;
+  font-size: 20px;
+  font-weight: bold;
+}
