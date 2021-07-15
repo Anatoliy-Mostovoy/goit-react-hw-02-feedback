@@ -5,18 +5,20 @@ import s from '../Statistics/Statistics.module.css';
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <>
-      {options.map(option => {
-        return (
-          <button
-            key={option}
-            type="button"
-            className={s.button}
-            onClick={onLeaveFeedback}
-          >
-            {option}
-          </button>
-        );
-      })}
+      <div className={s.buttonContainer}>
+        {options.map(option => {
+          return (
+            <button
+              key={option}
+              type="button"
+              className={s.button}
+              onClick={onLeaveFeedback}
+            >
+              {option}
+            </button>
+          );
+        })}
+      </div>
     </>
   );
 };

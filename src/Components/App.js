@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import s from './Statistics/Statistics.module.css';
+import { Section } from './Section/Section';
 import { Statistics } from './Statistics/Statistics';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { Notification } from './Notification/Notification';
 
 export class App extends Component {
   state = { good: 0, neutral: 0, bad: 0 };
-
+  visibleStatistics = false;
   handelBtnClick = event => {
+    this.visibleStatistics = true;
     this.setState(prevState => {
       const { target } = event;
       const value = target.textContent.toLowerCase();
@@ -30,25 +33,30 @@ export class App extends Component {
 
     return (
       <div className={s.container}>
-        <h1 className={s.mainTitle}>Please leave feedback</h1>
-        <div className={s.buttonContainer}>
+        <Section title={'Please leave feedback'}>
           <FeedbackOptions
             options={['good', 'neutral', 'bad']}
             onLeaveFeedback={this.handelBtnClick}
           />
-        </div>
-        <h2 className={s.secondTitle}>Statistics</h2>
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={this.countTotalFeedback(good, neutral, bad)}
-          positivePercentage={this.countPositiveFeedbackPercentage(
-            good,
-            neutral,
-            bad,
+        </Section>
+
+        <Section title={'Statistics'}>
+          {this.visibleStatistics === true ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.countTotalFeedback(good, neutral, bad)}
+              positivePercentage={this.countPositiveFeedbackPercentage(
+                good,
+                neutral,
+                bad,
+              )}
+            />
+          ) : (
+            <Notification message={'No feedback given'} />
           )}
-        />
+        </Section>
       </div>
     );
   }
