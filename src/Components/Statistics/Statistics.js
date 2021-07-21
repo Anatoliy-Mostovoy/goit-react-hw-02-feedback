@@ -2,23 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import s from './Statistics.module.css';
 
-export const Statistics = ({
-  good,
-  neutral,
-  bad,
-  total,
-  positivePercentage,
-}) => {
+export const Statistics = props => {
   return (
-    <div className={s.titleList}>
-      <p style={{ color: 'green' }}>Good: {good}</p>
-      <p style={{ color: 'yellow' }}>Neutral: {neutral}</p>
-      <p style={{ color: 'Red' }}>Bad: {bad}</p>
-      <p style={{ color: 'orange', fontSize: 25 }}>Total: {total}</p>
-      <p style={{ color: 'orange', fontSize: 25 }}>
-        Positive feedback: {positivePercentage}%
-      </p>
-    </div>
+    <ul className={s.List}>
+      {Object.keys(props).map(data => {
+        return (
+          <li className={s.TitleList} key={data}>
+            <p>
+              {data}:{' '}
+              <span>
+                {props[data]}
+                {data === 'positivePercentage' && '%'}
+              </span>
+            </p>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 
